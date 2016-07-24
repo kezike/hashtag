@@ -1,4 +1,3 @@
-
 import database
 import hashlib
 
@@ -22,4 +21,20 @@ def addDescription(personId, blurb, income, interest, religion, ethnicity,age, s
     income, intrest, religion, ethnicity, age, sex, education)
     VALUES ('%d','%s', '%s','%s', '%s', '%s', '%s','%s','%s')""" % (personId, blurb, income, interest, religion, ethnicity, age, sex, education)
 	database.execute(sql)
-def getProfiles(age, sex, religion, ethnicity, income, education, interest)
+
+def getProfiles(thisAge, thisSex, thisReligion, thisEthnicity, thisIncome, thisEducation, thisInterest) {
+	personIds = """SELECT personId FROM description
+	WHERE age=thisAge
+	AND sex=thisSex
+	AND religion=thisReligion
+	AND ethnicity=thisEthnicity
+	AND income=thisIncome
+	AND education=thisEducation
+	AND interest=thisInterest"""
+	database.execute(personIds)
+
+	placeholder = ','
+	personIdStrings = ','.join(placeholder * len(personIds))
+	sql = "SELECT * FROM person WHERE id IN (%s)" % personIdStrings
+	database.execute(sql)
+}

@@ -19,7 +19,7 @@ data = cursor.fetchone()
 
 def execute(sql):
 	try:
-		var =cursor.execute(sql)
+		var = cursor.execute(sql)
 		db.commit()
 		data = cur.fetchall()  
             resultList = []  
