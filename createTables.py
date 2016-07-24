@@ -5,14 +5,15 @@ person = """CREATE TABLE person (
 	username CHAR(20) NOT NULL,
 	password CHAR(50) NOT NULL,
 	fname CHAR(20),
-	lname CHAR(20))"""
+	lname CHAR(20),
+	status CHAR(10))"""
 
 description = """CREATE TABLE description (
-	personId INT NOT NULL,
+	personId  INT NOT NULL,
 	blurb CHAR(150) NOT NULL,
-	income CHAR(20),
-	interest CHAR(50),
-	religion CHAR(20),
+	income  CHAR(20),
+	interest  CHAR(50),
+	religion  CHAR(20),
 	ethnicity CHAR(20),
     age CHAR(10),  
     sex CHAR(10),

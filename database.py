@@ -9,7 +9,7 @@ db = MySQLdb.connect(con['host'],con['username'],con['password'], con['db'])
 
 
 # prepare a cursor object using cursor() method
-cursor = db.cursor(dictionary=True)
+cursor = db.cursor()
 
 # execute SQL query using execute() method.
 cursor.execute("SELECT VERSION()")
@@ -19,7 +19,7 @@ data = cursor.fetchone()
 
 def execute(sql):
 	try:
-		var =cursor.execute(sql)
+		cursor.execute(sql)
 		db.commit()
 		return cursor	
 	except:

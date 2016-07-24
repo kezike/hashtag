@@ -1,45 +1,19 @@
 <!DOCTYPE html>
-<html>
 
+<html>
 	<head>
 		<meta charset="UTF-8">
+		<title> HashTag </title>
 		<link rel= "stylesheet" type = "text/css" href = "styles.css"/>
-		<title>Register</title>
+		<title>Search Page</title>
 	</head>
 
 	<body>
 		<div class="container">
 			<div class="main">
-				<form class="form" method="post" action="/signup" id ="signup">
-				<h2>Sign Up</h2>
-				{% if error %}
-       				 <p style= "color:blue;"><strong>Error:</strong> {{ error }}
-      			{% endif %}	
-				<fieldset>
-					<legend>First Name</legend>
-					<input type="text" name="fname" id="fname" placeholder= "First Name" required>
-				</fieldset>
+				<form class="form" method="post" action="/search" id ="signup">
+				<h2>Search Profiles</h2>
 				
-				<fieldset>
-					<legend>Last Name</legend>
-					<input type="text" name="lname" id="lname" placeholder= "Last Name" required>
-				</fieldset>
-				
-				<fieldset>
-					<legend>Login</legend>
-					<input type="text" name="username" id="username" placeholder= "Login">
-				</fieldset>
-				
-				<fieldset>
-					<legend>Password</legend>
-					<input type="password" name="password" id="password" placeholder= "Password" required>
-				</fieldset>
-				
-				<fieldset>
-					<legend> Status </legend>
-					<input type="radio" name="status" value="mentor" checked> Mentor<br>
-					<input type="radio" name="status" value="mentee"> Mentee<br>
-				</fieldset>
 				<fieldset>
 					<legend> Age </legend>
 					<input type="radio" name="age" value="child" checked> Child: 0-12 <br>
@@ -76,7 +50,6 @@
 					<input type="radio" name="ethnicity" value="hawaiian"> Hawaiian <br>
 					<input type="radio" name="ethnicity" value="nativeAm"> Native American <br>
 				</fieldset>
-				
 				<fieldset>
 					<legend> Income Level </legend>
 					<select name="income">
@@ -106,11 +79,10 @@
 					<select name="interest" required>
 						<option value="cloud"> Cloud Computing </option>
 						<option value="frontend"> Front End </option>
-						<option value="AI"> Artificial Intelligence </option>
-						<option value="UX"> UX Design </option>
-						<option value="ML"> Machine Learning </option>
+						<option value="ux"> UX Design </option>
+						<option value="ml"> Machine Learning </option>
 						<option value="compvison"> Computer Vision </option>
-						<option value="VR"> Virtual Reality</option>
+						<option value="vr"> Virtual Reality</option>
 						<option value="backend"> Back End </option>
 						<option value="fullstack"> Full Stack </option>
 						<option value="web"> Web Development </option>
@@ -118,13 +90,7 @@
 					</select>
 				</fieldset>
 				
-				<fieldset>
-					<label>Blurb</label>
-					<textarea form ="signup" name="blurb" class="blurb" cols="50" rows= "4" wrap="soft" placeholder="Please tell us a bit about yourself"></textarea>
-				</fieldset>
-				
-				<input type="submit" name="register" id="register" value="Register">
-				<h3>Already have an account? <a href="/login">Sign In</a></h3>
+				<input type="submit" name="search" id="register" value="Search">
 				</form>
 			</div>
 		</div>
