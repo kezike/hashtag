@@ -62,6 +62,11 @@ def signup():
         error= 'User could not be created'
     return render_template('signup.html', error = error)
 
+# route for handling the searchProfiles page logic
+@app.route('/searchProfiles', methods=GET['GET', 'POST'])
+def searchProfiles(thisAge, thisSex, thisReligion, thisEthnicity, thisIncome, thisEducation, thisInterest):
+    return render_template('match.html', interests=model.getProfiles(thisAge, thisSex, thisReligion, thisEthnicity, thisIncome, thisEducation, thisInterest))
+
 # start the server with the 'run()' method
 if __name__ == '__main__':
     app.secret_key = 'Thisisthebestappever'
