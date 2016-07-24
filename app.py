@@ -42,6 +42,7 @@ def signup():
     error = None
     if request.method == 'POST':
         fname= str(request.form['fname'])
+        print fname
         lname= str(request.form['lname'])
         username= str(request.form['username'])
         password= str(request.form['password'])
@@ -52,13 +53,14 @@ def signup():
         age= str(request.form['age'])
         sex= str(request.form['sex'])
         education= str(request.form['education'])
+        print education
         person=model.addPerson(username, password, fname, lname)
         description = model.addDescription(personId, blurb, income, interest, religion, ethnicity,age, sex, education)
         if(person and description):
             session['logged_in'] = True
             return redirect(url_for('home'))
         error= 'User could not be created'
-    return render_template('signup.html')
+    return render_template('signup.html', error = error)
 
 # start the server with the 'run()' method
 if __name__ == '__main__':

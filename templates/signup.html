@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html>
+
+	<head>
+		<meta charset="UTF-8">
+		<link rel= "stylesheet" type = "text/css" href = "static/styles.css"/>
+		<title>Register</title>
+	</head>
+
+	<body>
+		<div class="container">
+			<div class="main">
+				<form class="form" method="post" action="/signup" id ="signup">
+				<h2>Sign Up</h2>
+				{% if error %}
+       				 <p style= "color:blue;"><strong>Error:</strong> {{ error }}
+      			{% endif %}	
+				<fieldset>
+					<legend>First Name</legend>
+					<input type="text" name="fname" id="fname" placeholder= "First Name" required>
+				</fieldset>
+				
+				<fieldset>
+					<legend>Last Name</legend>
+					<input type="text" name="lname" id="lname" placeholder= "Last Name" required>
+				</fieldset>
+				
+				<fieldset>
+					<legend>Login</legend>
+					<input type="text" name="username" id="username" placeholder= "Login">
+				</fieldset>
+				
+				<fieldset>
+					<legend>Password</legend>
+					<input type="password" name="password" id="password" placeholder= "Password" required>
+				</fieldset>
+				
+				<fieldset>
+					<legend> Age </legend>
+					<input type="radio" name="age" value="child"> Child: 0-12 <br>
+					<input type="radio" name="age" value="teen"> Teen: 13-19 <br>
+					<input type="radio" name="age" value="yngAdlt"> Young Adult: 20-39 <br>
+					<input type="radio" name="age" value="midAge"> Middle-Age Adult: 40-59 <br>
+					<input type="radio" name="age" value="elder"> Elderly: 60+ <br>
+				</fieldset>
+
+				<fieldset>
+					<legend> Sex </legend>
+					<input type="radio" name="sex" value="male"> Male <br>
+					<input type="radio" name="sex" value="female"> Female <br>
+					<input type="radio" name="sex" value="other"> Other <br>
+				</fieldset>
+
+				<fieldset>
+					<legend> Religion </legend>
+					<input type="radio" name="religion" value="christ"> Christian <br>
+					<input type="radio" name="religion" value="jewish"> Judaism <br>
+					<input type="radio" name="religion" value="hindu"> Hinduism <br>
+					<input type="radio" name="religion" value="budd"> Buddhism <br>
+					<input type="radio" name="religion" value="islam"> Islam <br>
+
+				</fieldset>
+
+				<fieldset>
+					<legend> Ethnicity </legend>
+					<input type="radio" name="ethnicity" value="african"> African <br>
+					<input type="radio" name="ethnicity" value="black"> Black / African American <br>
+					<input type="radio" name="ethnicity" value="carib"> Caribbean <br>
+					<input type="radio" name="ethnicity" value="latinx"> Latino / Latina <br>
+					<input type="radio" name="ethnicity" value="asian"> Asian <br>
+					<input type="radio" name="ethnicity" value="hawaiian"> Hawaiian <br>
+					<input type="radio" name="ethnicity" value="nativeAm"> Native American <br>
+				</fieldset>
+				
+				<fieldset>
+					<legend> Income Level </legend>
+					<select name="income">
+						<option value="low"> Low Class</option>
+						<option value="mid"> Middle Class</option>
+						<option value="high"> High Class</option>
+					</select>
+				</fieldset>
+
+				<fieldset>
+					<legend> Education Level </legend>
+					<select name="education" required>
+						<option value="phd"> PhD </option>
+						<option value="master"> Masters </option>
+						<option value="bach"> Bachelors </option>
+						<option value="assoc"> Associate </option>
+						<option value="hiSch"> High School </option>
+						<option value="genEd"> General Education </option>
+						<option value="midSch"> Middle School </option>
+						<option value="elemSch"> Elementary School </option>
+						<option value="other"> Other </option>
+					</select>
+				</fieldset>
+
+				<fieldset>
+					<legend> Areas of Interest </legend>
+					<select name="interest" required>
+						<option value="cloud"> Cloud Computing </option>
+						<option value="frontend"> Front End </option>
+						<option value="ux"> UX Design </option>
+						<option value="ml"> Machine Learning </option>
+						<option value="compvison"> Computer Vision </option>
+						<option value="vr"> Virtual Reality</option>
+						<option value="backend"> Back End </option>
+						<option value="fullstack"> Full Stack </option>
+						<option value="web"> Web Development </option>
+						<option value="mobile"> Mobile Development </option>
+					</select>
+				</fieldset>
+				
+				<fieldset>
+					<label>Blurb</label>
+					<textarea form ="signup" name="blurb" class="blurb" cols="50" rows= "4" wrap="soft" placeholder="Please tell us a bit about yourself"></textarea>
+				</fieldset>
+				
+				<input type="submit" name="register" id="register" value="Register">
+				<h3>Already have an account? <a href="/login">Sign In</a></h3>
+				</form>
+			</div>
+		</div>
+	</body>
+</html>

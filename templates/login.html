@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title> HashTag </title>
+		<link rel= "stylesheet" type = "text/css" href = "static/styles.css"/>
+		<title>Login Page</title>
+	
+	</head>
+	<body>
+		<div class="container">
+			<div class="main">
+				<form class="form" method="post" action="/login">
+				<h2>Log In</h2>
+				{% if error %}
+       				 <p style= "color:blue;"><strong>Error:</strong> {{ error }}
+      			{% endif %}	
+      			<fieldset>
+      				<label>Username</label>
+					<input type="text" name="username" id="username" placeholder= "Username" 
+					value= "{{request.form.username }}" required>
+      			</fieldset>				
+      			
+      			<fieldset>
+      				<label>Password</label>
+					<input type="password" name="password" id="password" placeholder= "Password" 
+					value= "{{request.form.username }}"required>
+      			</fieldset>
+				
+				<input type="submit" name="signin" id="signin" value="Login">
+				<h3>Don't have an account? <a href="/signup">Register</a></h3>
+				</form>
+			</div>
+		</div>	
+	</body>
+
+</html>
