@@ -9,12 +9,12 @@
 			<fieldset>
 				<legend>Ethnicity</legend>
 				<input type="radio" name="ethnicity" value="african"> African <br>
-				<input type="radio" name="ethnicity" value="african_american"> Black / African American <br>
-				<input type="radio" name="ethnicity" value="caribbean"> Caribbean <br>
+				<input type="radio" name="ethnicity" value="black"> Black / African American <br>
+				<input type="radio" name="ethnicity" value="carib"> Caribbean <br>
 				<input type="radio" name="ethnicity" value="latinx"> Latino / Latina <br>
 				<input type="radio" name="ethnicity" value="asian"> Asian <br>
 				<input type="radio" name="ethnicity" value="hawaiian"> Hawaiian <br>
-				<input type="radio" name="ethnicity" value="native_american"> Native American <br>
+				<input type="radio" name="ethnicity" value="nativeAm"> Native American <br>
 			</fieldset>
 			
 			<fieldset>
@@ -29,10 +29,25 @@
 			<fieldset>
 				<legend>Education Level</legend>
 				<select name="education">
-					<option value="low">Low Income *TODO: specify this bracket*</option>
-					<option value="mid">Middle Income *TODO: specify this bracket*</option>
-					<option value="high">High Income *TODO: specify this bracket*</option>
+					<option value="phd">PhD</option>
+					<option value="master">Masters</option>
+					<option value="bach">Bachelors</option>
+					<option value="assoc">Associate</option>
+					<option value="hiSch">High School</option>
+					<option value="genEd">General Education</option>
+					<option value="midSch">Middle School</option>
+					<option value="elemSch">Elementary School</option>
+					<option value="other">Other</option>
 				</select>
+			</fieldset>
+
+			<fieldset>
+				<legend>Areas of Interest</legend>
+				<input type="checkbox" name="interest" value="natSci"> Natural Sciences <br>
+				<input type="checkbox" name="interest" value="tech"> Technology <br>
+				<input type="checkbox" name="interest" value="eng"> Engineering <br>
+				<input type="checkbox" name="interest" value="math"> Math <br>
+				<input type="checkbox" name="interest" value="compSci"> Computer Science <br>
 			</fieldset>
 		</form>
 		<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.0/jquery.min.js"></script>
