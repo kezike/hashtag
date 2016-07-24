@@ -9,7 +9,7 @@ db = MySQLdb.connect(con['host'],con['username'],con['password'], con['db'])
 
 
 # prepare a cursor object using cursor() method
-cursor = db.cursor()
+cursor = db.cursor(dictionary=True)
 
 # execute SQL query using execute() method.
 cursor.execute("SELECT VERSION()")

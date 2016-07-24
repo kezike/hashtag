@@ -52,3 +52,19 @@ def login(username, password):
 			user['name']=(data[4])
 			return user
 	return None
+
+def getProfiles(thisAge, thisSex, thisReligion, thisEthnicity, thisIncome, thisEducation, thisInterest):
+	personIds = """SELECT personId FROM description
+	WHERE age = thisAge
+	AND sex = thisSex
+	AND religion = thisReligion
+	AND ethnicity = thisEthnicity
+	AND income = thisIncome
+	AND education = thisEducation
+	AND interest = thisInterest"""
+	cursor = database.execute(personIds)
+	rows = cursor.fetchall()
+	data = []
+	for row in rows:
+		data.append(cursor["personId"])
+	return data
