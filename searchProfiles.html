@@ -5,7 +5,7 @@
 	
 	<body>
 		<h2>Search Hashtag</h2>
-		<form>
+		<form action="searchProfiles.py" method="post">
 			<fieldset>
 				<legend> Age </legend>
 				<input type="radio" name="age" value="child"> Child: 0-12 <br>
@@ -75,6 +75,8 @@
 				<input type="checkbox" name="interest" value="math"> Math <br>
 				<input type="checkbox" name="interest" value="compSci"> Computer Science <br>
 			</fieldset>
+
+			<input type="submit"> <br>
 		</form>
 		<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.0/jquery.min.js"></script>
 	</body>
