@@ -1,5 +1,6 @@
 # import the Flask class from the flask module
-from flask import Flask, render_template, redirect, url_for, request
+from flask import Flask, render_template, redirect, url_for, request, session, flash, abort
+import model
 
 # create the application object
 app = Flask(__name__)
@@ -7,23 +8,59 @@ app = Flask(__name__)
 # use decorators to link the function to a url
 @app.route('/')
 def home():
-    return "Hello, World!"  # return a string
+    if not session.get('logged_in'):
+        return render_template('login.html')
+    else:
+        user= session.get('user')
+        return "Hello"
 
-@app.route('/welcome')
-def welcome():
-    return "Hello, World!"   # return a string
 
   # route for handling the login page logic
-@app.route('/view', methods=['GET', 'POST'])
+@app.route('/login', methods=['GET', 'POST'])
 def login():
     error = None
     if request.method == 'POST':
-        if request.form['login'] != 'admin' or request.form['password'] != 'admin':
+        username= str(request.form['username'])
+        password= str(request.form['password'])
+        user = model.login(username, password)
+        if user == None:
             error = 'Invalid Credentials. Please try again.'
         else:
-            return redirect(url_for('welcome'))
-    return render_template('view.html', error=error)
+            session['user'] = user
+            session['logged_in'] = True
+            return redirect(url_for('home'))
+    return render_template('login.html', error=error)
+
+@app.route("/logout")
+def logout():
+    session['logged_in'] = False
+    return home()
+
+ # route for handling the signup page logic
+@app.route('/signup', methods=['GET', 'POST'])
+def signup():
+    error = None
+    if request.method == 'POST':
+        fname= str(request.form['fname'])
+        lname= str(request.form['lname'])
+        username= str(request.form['username'])
+        password= str(request.form['password'])
+        blurb= str(request.form['blurb'])
+        income= str(request.form['income'])
+        intrest= str(request.form['intrest'])
+        religion= str(request.form['religion'])
+        age= str(request.form['age'])
+        sex= str(request.form['sex'])
+        education= str(request.form['education'])
+        person=model.addPerson(username, password, fname, lname)
+        description = model.addDescription(personId, blurb, income, interest, religion, ethnicity,age, sex, education)
+        if(person and description):
+            session['logged_in'] = True
+            return redirect(url_for('home'))
+        error= 'User could not be created'
+    return render_template('signup.html')
 
 # start the server with the 'run()' method
 if __name__ == '__main__':
+    app.secret_key = 'Thisisthebestappever'
     app.run(debug=True)

@@ -19,13 +19,9 @@ data = cursor.fetchone()
 
 def execute(sql):
 	try:
-		var = cursor.execute(sql)
+		var =cursor.execute(sql)
 		db.commit()
-		data = cur.fetchall()  
-            resultList = []  
-            for data_out in data:  
-                resultList.append(data_out[1])  
-            return resultList 
+		return cursor	
 	except:
 		db.rollback()
 # disconnect from server
