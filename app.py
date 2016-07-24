@@ -63,10 +63,11 @@ def search():
 @app.route('/chat', methods=['GET', 'POST'])
 def chat():
     print "chatting"
-    if request.method == 'POST' or request.method == 'GET':
+    message= None
+    if request.method == 'POST':
         message = "Message Sent"
         flash(message)
-        return render_template('chat.html')
+        return render_template('chat.html', message= "thank you for responding")
     return render_template('chat.html')
 
  # route for handling the signup page logic
