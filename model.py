@@ -10,10 +10,12 @@ def addPerson(username, password, fname, lname):
 	if usernameAvailable(username):
 		sql = """INSERT INTO person(username,
 	    password, fname, lname)
-	    VALUES ('%s', '%s', '%s', '%s')""" % (username, sha1.hexdigest(), fname, lname)
-		database.execute(sql)
-		return True
-	return False
+	    VALUES ('%s', '%s', '%s', '%s');""" % (username, sha1.hexdigest(), fname, lname)
+		cursor = database.execute(sql)
+		cursor = database.execute("""SELECT id FROM person WHERE username = '%s';""" % username)
+		person_id = cursor.fetchone()[0]
+		return person_id
+	return None
 
 def addMatch(mentorId, menteeId):
 	if mentorId!=menteeId:
@@ -27,16 +29,14 @@ def addMatch(mentorId, menteeId):
 
 def addDescription(personId, blurb, income, interest, religion, ethnicity,age, sex, education):
 	sql = """INSERT INTO description(personId, blurb,
-    income, intrest, religion, ethnicity, age, sex, education)
+    income, interest, religion, ethnicity, age, sex, education)
     VALUES ('%d','%s', '%s','%s', '%s', '%s', '%s','%s','%s')""" % (personId, blurb, income, interest, religion, ethnicity, age, sex, education)
 	database.execute(sql)
 
 def usernameAvailable(username):
 	sql = """SELECT * FROM person WHERE username='%s'""" % (username)
 	cursor = database.execute(sql)
-	if cursor.fetchone()[0] == 0:
-		return True
-	return False
+	return not cursor.fetchone()
 
 def login(username, password):
 	sha1.update(password)

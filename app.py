@@ -48,15 +48,15 @@ def signup():
         password= str(request.form['password'])
         blurb= str(request.form['blurb'])
         income= str(request.form['income'])
-        intrest= str(request.form['intrest'])
+        intrest= str(request.form['interest'])
         religion= str(request.form['religion'])
         age= str(request.form['age'])
         sex= str(request.form['sex'])
+        ethnicity= str(request.form['ethnicity'])
         education= str(request.form['education'])
-        print education
-        person=model.addPerson(username, password, fname, lname)
-        description = model.addDescription(personId, blurb, income, interest, religion, ethnicity,age, sex, education)
-        if(person and description):
+        personId=model.addPerson(username, password, fname, lname)
+        description = model.addDescription(personId, blurb, income, intrest, religion, ethnicity,age, sex, education)
+        if(personId and description):
             session['logged_in'] = True
             return redirect(url_for('home'))
         error= 'User could not be created'

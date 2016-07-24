@@ -6,7 +6,7 @@ con= {'host': 'hashtag.ccyevrvcqxia.us-west-2.rds.amazonaws.com',
   'db': 'hashtag'}
 
 db = MySQLdb.connect(con['host'],con['username'],con['password'], con['db'])
-
+db.autocommit(True)
 
 # prepare a cursor object using cursor() method
 cursor = db.cursor()
@@ -18,11 +18,5 @@ cursor.execute("SELECT VERSION()")
 data = cursor.fetchone()
 
 def execute(sql):
-	try:
-		var =cursor.execute(sql)
-		db.commit()
-		return cursor	
-	except:
-		db.rollback()
-# disconnect from server
-#db.close()
+	cursor.execute(sql)
+	return cursor	
