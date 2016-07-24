@@ -64,7 +64,8 @@ def search():
 def chat():
     print "chatting"
     if request.method == 'POST' or request.method == 'GET':
-        print "posted"
+        message = "Message Sent"
+        flash(message)
         return render_template('chat.html')
     return render_template('chat.html')
 

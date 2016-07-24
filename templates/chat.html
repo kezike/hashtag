@@ -8,7 +8,7 @@
     <link rel="stylesheet" href="css/reset.css">
 
     
-        <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="css/style.css">
 
   </head>
   <body>
@@ -155,9 +155,10 @@
             </div>
             <div class="write">
                 <a href="javascript:;" class="write-link attach"></a>
-                <input type="text" />
+                <input type="text"  name= "chat-text" form = "form-id"/>
                 <a href="javascript:;" class="write-link smiley"></a>
-                <a href="javascript:;" class="write-link send"></a>
+                <a href="#" onclick="document.getElementById('form-id').submit();" class="write-link send"></a>
+                <form method="post" action= "/chat" id ="form-id"></form>
             </div>
         </div>
     </div>
